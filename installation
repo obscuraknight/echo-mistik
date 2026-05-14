@@ -1,0 +1,586 @@
+# Installation Guide
+
+Echo runs locally as a small Python web application. It works on:
+
+- **Windows**
+- **Linux**
+- **macOS**
+
+After installation, Echo opens in your browser at:
+
+```text
+http://127.0.0.1:5000
+```
+
+Echo requires:
+
+- Python 3
+- `pip`
+- the dependencies listed in `requirements.txt`
+- a Groq API key, pasted into the app interface
+
+A virtual environment is recommended so Echo’s packages stay isolated from the rest of your system.
+
+---
+
+# Windows Installation
+
+## 1. Install Python
+
+Download and install the latest stable **Python 3** for Windows from the official Python website.
+
+During installation, make sure to check:
+
+```text
+Add Python to PATH
+```
+
+This is important. Without it, the `python` command may not work in Command Prompt or PowerShell.
+
+---
+
+## 2. Install Git, or download ZIP
+
+### Option A — easiest: Download ZIP
+
+1. Open the Echo GitHub repository.
+2. Click:
+
+```text
+Code → Download ZIP
+```
+
+3. Extract the ZIP file.
+4. Open the extracted `echo-mistik` folder.
+
+### Option B — clone with Git
+
+Install Git for Windows from the official Git website, then open **PowerShell** and run:
+
+```powershell
+git clone https://github.com/obscuraknight/echo-mistik.git
+cd echo-mistik
+```
+
+---
+
+## 3. Open PowerShell inside the project folder
+
+If you downloaded the ZIP:
+
+1. Open the extracted `echo-mistik` folder.
+2. Click the folder address bar.
+3. Type:
+
+```text
+powershell
+```
+
+4. Press **Enter**.
+
+PowerShell should open directly inside the project folder.
+
+---
+
+## 4. Create a virtual environment
+
+Run:
+
+```powershell
+python -m venv venv
+```
+
+This creates a local Python environment inside the project folder.
+
+---
+
+## 5. Activate the virtual environment
+
+Run:
+
+```powershell
+venv\Scripts\activate
+```
+
+After activation, the terminal usually begins with:
+
+```text
+(venv)
+```
+
+Example:
+
+```text
+(venv) PS C:\Users\YourName\echo-mistik>
+```
+
+---
+
+## 6. Install Echo’s dependencies
+
+Run:
+
+```powershell
+pip install -r requirements.txt
+```
+
+This installs the required Python packages for Echo.
+
+---
+
+## 7. Start Echo
+
+Run:
+
+```powershell
+python echo.py
+```
+
+You should see something similar to:
+
+```text
+ECHO running at http://localhost:5000
+ * Running on http://127.0.0.1:5000
+```
+
+---
+
+## 8. Open Echo in your browser
+
+Open:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## 9. Add your Groq API key
+
+Inside Echo:
+
+1. Paste your Groq API key into the key field on the right panel.
+2. Type a message.
+3. Press **Enter** or click **SEND**.
+
+The key usually begins with:
+
+```text
+gsk_
+```
+
+Echo also includes an in-app button explaining how to create a Groq key.
+
+---
+
+## Windows troubleshooting
+
+### `python` is not recognized
+
+Try:
+
+```powershell
+py -m venv venv
+```
+
+Then activate and run with:
+
+```powershell
+venv\Scripts\activate
+py echo.py
+```
+
+This commonly works on Windows installations where the Python launcher is available.
+
+---
+
+### PowerShell says script execution is disabled
+
+If activation fails with an execution policy message, run this once in PowerShell:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
+
+Then close PowerShell, reopen it, and run:
+
+```powershell
+venv\Scripts\activate
+```
+
+---
+
+### The browser does not open automatically
+
+Echo does not force-open a browser. Open it manually:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+# Linux Installation
+
+## 1. Install Python, pip, venv, and Git
+
+Most Linux distributions include Python, but some may not include `venv` or `pip` by default.
+
+### Debian / Ubuntu / Linux Mint
+
+```bash
+sudo apt update
+sudo apt install python3 python3-pip python3-venv git
+```
+
+### Fedora
+
+```bash
+sudo dnf install python3 python3-pip git
+```
+
+If your Fedora setup does not include venv support by default, install the relevant Python virtual environment package for your distribution.
+
+### Arch Linux / Manjaro
+
+```bash
+sudo pacman -S python python-pip git
+```
+
+---
+
+## 2. Download Echo
+
+### Option A — clone with Git
+
+```bash
+git clone https://github.com/obscuraknight/echo-mistik.git
+cd echo-mistik
+```
+
+### Option B — download ZIP
+
+1. Open the Echo GitHub repository.
+2. Click:
+
+```text
+Code → Download ZIP
+```
+
+3. Extract it.
+4. Open a terminal inside the extracted folder.
+
+---
+
+## 3. Create a virtual environment
+
+```bash
+python3 -m venv venv
+```
+
+Virtual environments isolate project packages from your system Python installation.
+
+---
+
+## 4. Activate the virtual environment
+
+```bash
+source venv/bin/activate
+```
+
+You should now see:
+
+```text
+(venv)
+```
+
+at the start of your terminal prompt.
+
+---
+
+## 5. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 6. Start Echo
+
+```bash
+python3 echo.py
+```
+
+You should see:
+
+```text
+ECHO running at http://localhost:5000
+ * Running on http://127.0.0.1:5000
+```
+
+---
+
+## 7. Open Echo in your browser
+
+Go to:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## 8. Add your Groq API key
+
+Paste your Groq key into the key field inside Echo, then begin chatting.
+
+---
+
+## Linux troubleshooting
+
+### `python3 -m venv venv` fails
+
+On Debian-based systems, install:
+
+```bash
+sudo apt install python3-venv
+```
+
+Then try again.
+
+---
+
+### `pip` is not found
+
+On Debian-based systems:
+
+```bash
+sudo apt install python3-pip
+```
+
+---
+
+### Port 5000 is already in use
+
+If another program is using port `5000`, Echo may fail to start.
+
+You can either close the other program or edit this line in `echo.py`:
+
+```python
+PORT = 5000
+```
+
+For example:
+
+```python
+PORT = 5050
+```
+
+Then open:
+
+```text
+http://127.0.0.1:5050
+```
+
+---
+
+# macOS Installation
+
+## 1. Install Python
+
+Download and install a recent stable **Python 3** release for macOS from the official Python website.
+
+---
+
+## 2. Install Git if needed
+
+Git is often already available on macOS. If it is not, you can install it using the official Git instructions or through Apple’s command-line tools prompt when macOS offers it.
+
+Check whether Git is installed:
+
+```bash
+git --version
+```
+
+---
+
+## 3. Download Echo
+
+### Option A — clone with Git
+
+```bash
+git clone https://github.com/obscuraknight/echo-mistik.git
+cd echo-mistik
+```
+
+### Option B — download ZIP
+
+1. Open the Echo GitHub repository.
+2. Click:
+
+```text
+Code → Download ZIP
+```
+
+3. Extract the ZIP file.
+4. Open **Terminal** inside the extracted project folder.
+
+---
+
+## 4. Create a virtual environment
+
+```bash
+python3 -m venv venv
+```
+
+---
+
+## 5. Activate it
+
+```bash
+source venv/bin/activate
+```
+
+Your terminal should now show:
+
+```text
+(venv)
+```
+
+---
+
+## 6. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 7. Run Echo
+
+```bash
+python3 echo.py
+```
+
+You should see:
+
+```text
+ECHO running at http://localhost:5000
+ * Running on http://127.0.0.1:5000
+```
+
+---
+
+## 8. Open the app
+
+In your browser, visit:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## 9. Add your Groq API key
+
+Paste your key into Echo’s key field and begin chatting.
+
+---
+
+# Groq API Key Setup
+
+Echo uses a Groq API key so it can send chat requests to the configured backend model.
+
+## How to get a Groq key
+
+1. Create or sign in to a Groq account.
+2. Open the Groq Console.
+3. Go to the API Keys section.
+4. Create a new API key.
+5. Copy it immediately.
+6. Paste it into Echo’s API key field.
+
+The key usually starts with:
+
+```text
+gsk_
+```
+
+Do not publish your API key, include it in screenshots, or commit it to GitHub.
+
+---
+
+# Platform Notes
+
+## Browser interface
+
+Echo runs locally in a browser, so its main interface is cross-platform.
+
+Supported desktop operating systems:
+
+- Windows
+- Linux
+- macOS
+
+---
+
+## Voice output
+
+Echo uses the browser’s built-in speech synthesis system.
+
+This means:
+
+- voice availability differs by operating system
+- Chrome, Edge, Firefox, and Safari may provide different voices
+- the same Echo settings may sound slightly different from one computer to another
+
+---
+
+## Local memory files
+
+Echo creates local files for its memory and reflective dream notes:
+
+```text
+echo_long_memory.json
+echo_dreams.json
+```
+
+These are generated on the user’s own computer and are not meant to be uploaded to GitHub.
+
+---
+
+# How to stop Echo
+
+To stop the local server, go back to the terminal and press:
+
+```text
+CTRL + C
+```
+
+---
+
+# How to run Echo again later
+
+Open a terminal in the Echo folder.
+
+## Windows
+
+```powershell
+venv\Scripts\activate
+python echo.py
+```
+
+## Linux / macOS
+
+```bash
+source venv/bin/activate
+python3 echo.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:5000
+```
