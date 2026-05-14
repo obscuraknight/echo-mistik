@@ -1,0 +1,36 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Local environment / secrets
+.env
+.env.*
+*.pem
+*.key
+secrets.*
+credentials.*
+
+# Echo local memory files
+echo_long_memory.json
+echo_dreams.json
+
+# Local generated/user-specific files
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE/editor
+.vscode/
+.idea/
+
+# Packaging/build
+build/
+dist/
+*.egg-info/
