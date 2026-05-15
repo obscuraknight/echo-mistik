@@ -11,6 +11,115 @@
 
 ---
 
+# Quick Start
+
+Echo runs locally as a small Python web app. It is designed to work on **Windows, Linux, and macOS**.
+
+After starting Echo, open:
+
+```text
+http://127.0.0.1:5000
+```
+
+Then paste your **Groq API key** into the key field in the app and begin chatting.
+
+---
+
+## Windows
+
+### 1. Install Python
+Install a recent version of Python for Windows. During installation, enable:
+
+```text
+Add Python to PATH
+```
+
+### 2. Download Echo
+Either download the ZIP from GitHub and extract it, or clone the repository with Git:
+
+```powershell
+git clone https://github.com/obscuraknight/echo-mistik.git
+cd echo-mistik
+```
+
+### 3. Create a virtual environment
+
+```powershell
+python -m venv venv
+```
+
+### 4. Activate it
+
+```powershell
+venv\Scripts\activate
+```
+
+### 5. Install Echo's dependencies
+
+```powershell
+pip install -r requirements.txt
+```
+
+### 6. Run Echo
+
+```powershell
+python echo.py
+```
+
+### 7. Open the browser
+Visit:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## Linux
+
+```bash
+git clone https://github.com/obscuraknight/echo-mistik.git
+cd echo-mistik
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python3 echo.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## macOS
+
+```bash
+git clone https://github.com/obscuraknight/echo-mistik.git
+cd echo-mistik
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python3 echo.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## Platform note
+
+Echo's visual interface works through the browser on all three desktop platforms.  
+Its voice output uses the browser's built-in speech synthesis, so the exact available voice and voice quality may differ between Windows, Linux, macOS, Chrome, Edge, and Firefox.
+
+---
+
 ## The idea
 
 **Mistik** and **Echo** are two connected expressions of the same design philosophy:
@@ -273,7 +382,7 @@ Echo is designed to be:
 - easier to share
 - easier to understand
 - visually striking
-- lightweight enough for a public demo or public-source non-commercial entry point
+- lightweight enough for a public demo or open-source entry point
 
 ---
 
@@ -516,21 +625,6 @@ Groq currently classifies Llama 4 Scout as a **preview model**, which means it m
 
 ---
 
-# Repository safety note
-
-This public repository should contain **Echo only**, not the private Mistik source code.
-
-Before publishing:
-- do not commit any Groq, xAI, OpenAI, or other API keys
-- do not commit `.env` files
-- do not commit `echo_long_memory.json` or `echo_dreams.json`
-- do not commit virtual environments such as `venv/` or `.venv/`
-- confirm that all included artwork is yours to publish
-
-A `.gitignore` file is included to reduce accidental leaks, but always review `git status` before every commit.
-
----
-
 # Privacy and local files
 
 ## Echo
@@ -583,7 +677,7 @@ project-root/
 ├── assets/
 │   ├── mistik.png
 │   └── echo.jpg
-├── echo.py
+├── echo_mistik_memory_dreams_stop_voice.py
 ├── mystic_pet.py
 └── ...
 ```
@@ -598,7 +692,7 @@ A typical local run flow:
 python3 -m venv venv
 source venv/bin/activate
 pip install flask openai
-python3 echo.py
+python3 echo_mistik_memory_dreams_stop_voice.py
 ```
 
 Then open:
